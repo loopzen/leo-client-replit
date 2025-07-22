@@ -1,7 +1,6 @@
 import { useState } from "react";
 import ChatInterface from "@/components/ChatInterface";
 import FacilityInfoSidebar from "@/components/FacilityInfoSidebar";
-import KnowledgeBaseStatus from "@/components/KnowledgeBaseStatus";
 import { useQuery } from "@tanstack/react-query";
 
 export default function Home() {
@@ -18,57 +17,71 @@ export default function Home() {
   });
 
   return (
-    <div className="font-sans bg-background min-h-screen">
-      {/* Header */}
-      <header className="bg-primary text-white shadow-lg sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+      {/* Modern Header with Gradient */}
+      <header className="bg-gradient-to-r from-blue-600 via-blue-700 to-purple-700 text-white shadow-2xl sticky top-0 z-50 backdrop-blur-sm">
+        <div className="container mx-auto px-6 py-6">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                <svg className="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            <div className="flex items-center space-x-4">
+              <div className="w-12 h-12 bg-gradient-to-br from-white/20 to-white/10 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-white/20">
+                <svg className="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                 </svg>
               </div>
               <div>
-                <h1 className="text-xl font-medium">FlowTernity Sports AI</h1>
-                <p className="text-blue-200 text-sm">Your Sports Facility Assistant</p>
+                <h1 className="text-2xl font-bold bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
+                  FlowTernity Sports AI
+                </h1>
+                <p className="text-blue-100 text-sm font-medium">Your Intelligent Sports Assistant</p>
               </div>
             </div>
-            {/* Status Indicator */}
-            <div className="flex items-center space-x-3">
-              <div className="flex items-center space-x-2">
-                <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-                <span className="text-sm">AI Assistant</span>
+            
+            {/* Modern Status Indicators */}
+            <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-2 bg-white/10 rounded-full px-3 py-1.5 backdrop-blur-sm border border-white/20">
+                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse shadow-lg"></div>
+                <span className="text-sm font-medium">AI Online</span>
               </div>
-              <div className="flex items-center space-x-2">
-                <div className={`w-3 h-3 rounded-full ${
+              <div className="flex items-center space-x-2 bg-white/10 rounded-full px-3 py-1.5 backdrop-blur-sm border border-white/20">
+                <div className={`w-2 h-2 rounded-full shadow-lg ${
                   scrapingStatus && (scrapingStatus as any).playo?.status === 'success' ? 'bg-green-400' : 
                   scrapingStatus && (scrapingStatus as any).playo?.status === 'error' ? 'bg-red-400' : 'bg-yellow-400'
                 }`}></div>
-                <span className="text-sm">Data Sync</span>
+                <span className="text-sm font-medium">Live Data</span>
               </div>
             </div>
           </div>
         </div>
       </header>
 
-      <div className="container mx-auto px-4 py-6 max-w-7xl">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+      {/* Hero Section */}
+      <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-purple-700 py-8">
+        <div className="container mx-auto px-6">
+          <div className="text-center text-white">
+            <h2 className="text-3xl md:text-4xl font-bold mb-3 bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
+              Welcome to FlowTernity Sports
+            </h2>
+            <p className="text-lg text-blue-100 max-w-2xl mx-auto">
+              Ask anything about our facilities, courts, pricing, and programs. Get instant answers powered by AI.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="container mx-auto px-6 py-8 max-w-7xl">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           
-          {/* Facility Info Sidebar */}
+          {/* Enhanced Facility Info Sidebar */}
           <div className="lg:col-span-1 order-2 lg:order-1">
             <FacilityInfoSidebar facilityData={facilityData} scrapingStatus={scrapingStatus} />
           </div>
 
-          {/* Chat Interface */}
+          {/* Enhanced Chat Interface */}
           <div className="lg:col-span-3 order-1 lg:order-2">
             <ChatInterface sessionId={sessionId} />
           </div>
 
         </div>
-
-        {/* Knowledge Base Status */}
-        <KnowledgeBaseStatus scrapingStatus={scrapingStatus} />
       </div>
     </div>
   );
