@@ -7,6 +7,7 @@ This is a full-stack web application that serves as an AI-powered assistant for 
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
+UI/UX preferences: Modern gradient design, user-friendly interface, enhanced contact information display.
 
 ## System Architecture
 

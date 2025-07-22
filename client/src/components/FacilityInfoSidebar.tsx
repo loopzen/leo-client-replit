@@ -79,68 +79,61 @@ export default function FacilityInfoSidebar({ facilityData, scrapingStatus }: Fa
               </div>
             </div>
 
-            {/* Enhanced Contact Info */}
-            <div className="pt-6 border-t border-gradient-to-r from-gray-100 to-purple-100">
-              <div className="space-y-4">
-                <div className="flex items-center bg-gradient-to-r from-blue-50 to-blue-100 border border-blue-200 rounded-xl p-3">
-                  <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mr-3">
-                    <Phone className="w-4 h-4 text-white" />
-                  </div>
-                  <span className="font-medium text-blue-700">{data.basicInfo?.phone}</span>
-                </div>
-                <div className="flex items-start bg-gradient-to-r from-green-50 to-green-100 border border-green-200 rounded-xl p-3">
-                  <div className="w-8 h-8 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mr-3 flex-shrink-0">
-                    <MapPin className="w-4 h-4 text-white" />
-                  </div>
-                  <span className="text-sm font-medium text-green-700 leading-relaxed">{data.basicInfo?.address}</span>
-                </div>
-              </div>
-            </div>
+
           </div>
         </CardContent>
       </Card>
 
-      {/* Enhanced Data Sources Status */}
+      {/* Enhanced Contact Information Card */}
       <Card className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-2xl border border-white/50">
         <CardContent className="p-6">
           <h4 className="font-bold text-gray-900 mb-5 text-lg flex items-center">
-            <div className="w-6 h-6 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center mr-3">
-              <div className="w-2 h-2 bg-white rounded-full"></div>
+            <div className="w-6 h-6 bg-gradient-to-br from-green-500 to-blue-600 rounded-xl flex items-center justify-center mr-3">
+              <Phone className="w-3 h-3 text-white" />
             </div>
-            <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Data Sources</span>
+            <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">Get In Touch</span>
           </h4>
-          <div className="space-y-3">
-            <div className="flex items-center justify-between bg-gradient-to-r from-gray-50 to-white border border-gray-100 rounded-xl p-3">
-              <span className="font-medium text-gray-700">Playo Venue</span>
-              <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                scrapingStatus?.playo?.status === 'success' ? 'bg-gradient-to-r from-green-100 to-green-200 text-green-700 border border-green-300' : 
-                scrapingStatus?.playo?.status === 'error' ? 'bg-gradient-to-r from-red-100 to-red-200 text-red-700 border border-red-300' : 'bg-gradient-to-r from-yellow-100 to-yellow-200 text-yellow-700 border border-yellow-300'
-              }`}>
-                {scrapingStatus?.playo?.status === 'success' ? '✓ Synced' : 
-                 scrapingStatus?.playo?.status === 'error' ? '✗ Error' : '⏳ Pending'}
-              </span>
+          
+          <div className="space-y-4">
+            {/* Phone Number */}
+            <a 
+              href={`tel:${data.basicInfo?.phone}`}
+              className="flex items-center bg-gradient-to-r from-green-50 to-green-100 border border-green-200 rounded-xl p-4 hover:from-green-100 hover:to-green-200 hover:border-green-300 transition-all duration-200 group"
+            >
+              <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-200">
+                <Phone className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <div className="font-bold text-green-700 text-lg">{data.basicInfo?.phone}</div>
+                <div className="text-sm text-green-600">Call us now</div>
+              </div>
+            </a>
+
+            {/* Address */}
+            <div className="bg-gradient-to-r from-blue-50 to-blue-100 border border-blue-200 rounded-xl p-4">
+              <div className="flex items-start">
+                <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
+                  <MapPin className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <div className="font-bold text-blue-700 mb-2">Visit Us</div>
+                  <div className="text-sm text-blue-600 leading-relaxed">{data.basicInfo?.address}</div>
+                </div>
+              </div>
             </div>
-            <div className="flex items-center justify-between bg-gradient-to-r from-gray-50 to-white border border-gray-100 rounded-xl p-3">
-              <span className="font-medium text-gray-700">Instagram</span>
-              <span className="px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-orange-100 to-orange-200 text-orange-700 border border-orange-300">
-                📱 Partial
-              </span>
+
+            {/* Operating Hours */}
+            <div className="bg-gradient-to-r from-purple-50 to-purple-100 border border-purple-200 rounded-xl p-4">
+              <div className="flex items-center">
+                <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mr-4">
+                  <Clock className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <div className="font-bold text-purple-700 mb-1">Operating Hours</div>
+                  <div className="text-sm text-purple-600">{data.basicInfo?.timing} (Daily)</div>
+                </div>
+              </div>
             </div>
-            <div className="flex items-center justify-between bg-gradient-to-r from-gray-50 to-white border border-gray-100 rounded-xl p-3">
-              <span className="font-medium text-gray-700">Google Maps</span>
-              <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                scrapingStatus?.google_maps?.status === 'success' ? 'bg-gradient-to-r from-green-100 to-green-200 text-green-700 border border-green-300' : 'bg-gradient-to-r from-yellow-100 to-yellow-200 text-yellow-700 border border-yellow-300'
-              }`}>
-                {scrapingStatus?.google_maps?.status === 'success' ? '✓ Synced' : '⏳ Pending'}
-              </span>
-            </div>
-          </div>
-          <div className="bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-100 rounded-xl p-3 mt-4">
-            <p className="text-xs text-gray-600 font-medium">
-              🕒 Last updated: {scrapingStatus?.playo?.lastScraped ? 
-                new Date(scrapingStatus.playo.lastScraped).toLocaleTimeString() : 
-                'Never'}
-            </p>
           </div>
         </CardContent>
       </Card>

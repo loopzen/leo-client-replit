@@ -68,17 +68,21 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="container mx-auto px-6 py-8 max-w-7xl">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+      <div className="container mx-auto px-4 sm:px-6 py-6 sm:py-8 max-w-7xl">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-8">
           
           {/* Enhanced Facility Info Sidebar */}
           <div className="lg:col-span-1 order-2 lg:order-1">
-            <FacilityInfoSidebar facilityData={facilityData} scrapingStatus={scrapingStatus} />
+            <div className="lg:sticky lg:top-32">
+              <FacilityInfoSidebar facilityData={facilityData} scrapingStatus={scrapingStatus} />
+            </div>
           </div>
 
           {/* Enhanced Chat Interface */}
           <div className="lg:col-span-3 order-1 lg:order-2">
-            <ChatInterface sessionId={sessionId} />
+            <div className="max-w-4xl mx-auto">
+              <ChatInterface sessionId={sessionId} />
+            </div>
           </div>
 
         </div>

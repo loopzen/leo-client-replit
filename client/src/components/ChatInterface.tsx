@@ -100,7 +100,7 @@ export default function ChatInterface({ sessionId }: ChatInterfaceProps) {
   };
 
   return (
-    <Card className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-2xl border border-white/50 flex flex-col h-[600px]">
+    <Card className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-2xl border border-white/50 flex flex-col h-[700px] sm:h-[650px] lg:h-[700px]">
       {/* Modern Chat Header */}
       <div className="px-6 py-5 border-b border-gradient-to-r from-gray-100 to-purple-50 flex items-center justify-between bg-gradient-to-r from-blue-50 to-purple-50">
         <div className="flex items-center space-x-4">
@@ -138,31 +138,38 @@ export default function ChatInterface({ sessionId }: ChatInterfaceProps) {
       <div className="flex-1 overflow-y-auto p-6 space-y-4">
         
         {/* Enhanced Welcome Message */}
-        <div className="flex items-start space-x-4">
-          <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
-            <Bot className="w-5 h-5 text-white" />
+        <div className="flex items-start space-x-4 mb-6">
+          <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg animate-pulse">
+            <Bot className="w-6 h-6 text-white" />
           </div>
-          <div className="bg-gradient-to-br from-blue-50 to-purple-50 border border-blue-100 rounded-2xl rounded-tl-md p-5 max-w-xs lg:max-w-md shadow-sm">
-            <p className="text-sm text-gray-800 font-medium">👋 Welcome to FlowTernity Sports! I'm your AI assistant. I can help you with:</p>
-            <ul className="text-sm text-gray-700 mt-3 space-y-2">
-              <li className="flex items-center space-x-2">
-                <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
-                <span>Facility information & amenities</span>
-              </li>
-              <li className="flex items-center space-x-2">
-                <div className="w-1.5 h-1.5 bg-purple-500 rounded-full"></div>
-                <span>Court booking & pricing</span>
-              </li>
-              <li className="flex items-center space-x-2">
-                <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
-                <span>Sports programs & coaching</span>
-              </li>
-              <li className="flex items-center space-x-2">
-                <div className="w-1.5 h-1.5 bg-purple-500 rounded-full"></div>
-                <span>Location & contact details</span>
-              </li>
-            </ul>
-            <p className="text-sm text-gray-600 mt-3 font-medium">Ask me anything about our sports facility!</p>
+          <div className="bg-gradient-to-br from-blue-50 to-purple-50 border border-blue-100 rounded-2xl rounded-tl-md p-6 max-w-md shadow-lg">
+            <div className="flex items-center mb-3">
+              <span className="text-lg font-bold text-gray-800">👋 Welcome to FlowTernity Sports!</span>
+            </div>
+            <p className="text-sm text-gray-700 font-medium mb-4">I'm your AI assistant, ready to help you with everything about our sports facility.</p>
+            
+            <div className="grid grid-cols-2 gap-3 mb-4">
+              <div className="bg-white/60 backdrop-blur-sm border border-blue-200 rounded-xl p-3 text-center hover:bg-white/80 transition-all duration-200">
+                <div className="text-lg mb-1">🏀</div>
+                <div className="text-xs font-medium text-gray-700">Courts & Sports</div>
+              </div>
+              <div className="bg-white/60 backdrop-blur-sm border border-purple-200 rounded-xl p-3 text-center hover:bg-white/80 transition-all duration-200">
+                <div className="text-lg mb-1">💰</div>
+                <div className="text-xs font-medium text-gray-700">Pricing</div>
+              </div>
+              <div className="bg-white/60 backdrop-blur-sm border border-green-200 rounded-xl p-3 text-center hover:bg-white/80 transition-all duration-200">
+                <div className="text-lg mb-1">🏆</div>
+                <div className="text-xs font-medium text-gray-700">Coaching</div>
+              </div>
+              <div className="bg-white/60 backdrop-blur-sm border border-orange-200 rounded-xl p-3 text-center hover:bg-white/80 transition-all duration-200">
+                <div className="text-lg mb-1">📍</div>
+                <div className="text-xs font-medium text-gray-700">Location</div>
+              </div>
+            </div>
+            
+            <div className="bg-gradient-to-r from-blue-100 to-purple-100 border border-blue-200 rounded-xl p-3">
+              <p className="text-sm text-blue-700 font-medium text-center">💬 Just type your question below to get started!</p>
+            </div>
           </div>
         </div>
 
@@ -218,40 +225,70 @@ export default function ChatInterface({ sessionId }: ChatInterfaceProps) {
       </div>
 
       {/* Enhanced Quick Actions */}
-      <div className="px-6 py-4 border-t border-gradient-to-r from-gray-100 to-purple-50 bg-gradient-to-r from-blue-50/50 to-purple-50/50">
-        <div className="flex flex-wrap gap-3 mb-4">
-          <Button 
-            variant="outline" 
-            size="sm" 
-            onClick={() => handleQuickAction("What are your court timings and availability?")}
-            className="bg-gradient-to-r from-blue-50 to-blue-100 text-blue-700 border-blue-200 hover:from-blue-100 hover:to-blue-200 hover:border-blue-300 rounded-xl shadow-sm transition-all duration-200 font-medium"
-          >
-            🏀 Court Availability
-          </Button>
-          <Button 
-            variant="outline" 
-            size="sm" 
-            onClick={() => handleQuickAction("What are your pricing details for different sports?")}
-            className="bg-gradient-to-r from-purple-50 to-purple-100 text-purple-700 border-purple-200 hover:from-purple-100 hover:to-purple-200 hover:border-purple-300 rounded-xl shadow-sm transition-all duration-200 font-medium"
-          >
-            💰 Pricing Details
-          </Button>
-          <Button 
-            variant="outline" 
-            size="sm" 
-            onClick={() => handleQuickAction("Tell me about your coaching programs and schedules")}
-            className="bg-gradient-to-r from-green-50 to-green-100 text-green-700 border-green-200 hover:from-green-100 hover:to-green-200 hover:border-green-300 rounded-xl shadow-sm transition-all duration-200 font-medium"
-          >
-            🏆 Coaching Programs
-          </Button>
-          <Button 
-            variant="outline" 
-            size="sm" 
-            onClick={() => handleQuickAction("How do I get to FlowTernity Sports and what's the address?")}
-            className="bg-gradient-to-r from-orange-50 to-orange-100 text-orange-700 border-orange-200 hover:from-orange-100 hover:to-orange-200 hover:border-orange-300 rounded-xl shadow-sm transition-all duration-200 font-medium"
-          >
-            📍 Location & Directions
-          </Button>
+      <div className="px-6 py-5 border-t border-gradient-to-r from-gray-100 to-purple-50 bg-gradient-to-r from-blue-50/50 to-purple-50/50">
+        <div className="mb-3">
+          <h4 className="text-sm font-bold text-gray-700 mb-3 flex items-center">
+            <span className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mr-2"></span>
+            Quick Questions
+          </h4>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <Button 
+              variant="outline" 
+              size="sm" 
+              onClick={() => handleQuickAction("What are your court timings and availability?")}
+              className="bg-gradient-to-r from-blue-50 to-blue-100 text-blue-700 border-blue-200 hover:from-blue-100 hover:to-blue-200 hover:border-blue-300 rounded-xl shadow-sm transition-all duration-200 font-medium h-auto py-3 px-4 text-left justify-start"
+            >
+              <div className="flex items-center space-x-3">
+                <span className="text-lg">🏀</span>
+                <div>
+                  <div className="font-semibold">Court Availability</div>
+                  <div className="text-xs opacity-75">Check timings & booking</div>
+                </div>
+              </div>
+            </Button>
+            <Button 
+              variant="outline" 
+              size="sm" 
+              onClick={() => handleQuickAction("What are your pricing details for different sports?")}
+              className="bg-gradient-to-r from-purple-50 to-purple-100 text-purple-700 border-purple-200 hover:from-purple-100 hover:to-purple-200 hover:border-purple-300 rounded-xl shadow-sm transition-all duration-200 font-medium h-auto py-3 px-4 text-left justify-start"
+            >
+              <div className="flex items-center space-x-3">
+                <span className="text-lg">💰</span>
+                <div>
+                  <div className="font-semibold">Pricing Details</div>
+                  <div className="text-xs opacity-75">View rates & packages</div>
+                </div>
+              </div>
+            </Button>
+            <Button 
+              variant="outline" 
+              size="sm" 
+              onClick={() => handleQuickAction("Tell me about your coaching programs and schedules")}
+              className="bg-gradient-to-r from-green-50 to-green-100 text-green-700 border-green-200 hover:from-green-100 hover:to-green-200 hover:border-green-300 rounded-xl shadow-sm transition-all duration-200 font-medium h-auto py-3 px-4 text-left justify-start"
+            >
+              <div className="flex items-center space-x-3">
+                <span className="text-lg">🏆</span>
+                <div>
+                  <div className="font-semibold">Coaching Programs</div>
+                  <div className="text-xs opacity-75">Professional training</div>
+                </div>
+              </div>
+            </Button>
+            <Button 
+              variant="outline" 
+              size="sm" 
+              onClick={() => handleQuickAction("How do I get to FlowTernity Sports and what's the address?")}
+              className="bg-gradient-to-r from-orange-50 to-orange-100 text-orange-700 border-orange-200 hover:from-orange-100 hover:to-orange-200 hover:border-orange-300 rounded-xl shadow-sm transition-all duration-200 font-medium h-auto py-3 px-4 text-left justify-start"
+            >
+              <div className="flex items-center space-x-3">
+                <span className="text-lg">📍</span>
+                <div>
+                  <div className="font-semibold">Location & Directions</div>
+                  <div className="text-xs opacity-75">Find us & get directions</div>
+                </div>
+              </div>
+            </Button>
+          </div>
         </div>
       </div>
 
@@ -261,47 +298,62 @@ export default function ChatInterface({ sessionId }: ChatInterfaceProps) {
           <div className="flex-1 relative">
             <Input
               type="text"
-              placeholder="Ask about courts, pricing, timings, coaching..."
+              placeholder="Type your question here... (e.g., 'What are your court prices?')"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
-              onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
-              className="pr-12 rounded-2xl border-gray-200 bg-white/80 backdrop-blur-sm shadow-sm h-12 text-gray-900 placeholder-gray-500 font-medium focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+              onKeyPress={(e) => e.key === 'Enter' && !e.shiftKey && handleSendMessage()}
+              className="pr-16 rounded-2xl border-gray-200 bg-white/90 backdrop-blur-sm shadow-lg h-14 text-gray-900 placeholder-gray-500 font-medium focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-base"
               disabled={isLoading}
             />
-            <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
-              <div className="w-5 h-5 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
-                <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
+            {!isLoading && inputValue.trim() && (
+              <div className="absolute right-12 top-1/2 transform -translate-y-1/2">
+                <div className="text-xs text-gray-400 font-medium">Press Enter</div>
               </div>
+            )}
+            <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
+              {isLoading ? (
+                <div className="w-6 h-6 border-2 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+              ) : (
+                <div className="w-6 h-6 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+                  <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                </div>
+              )}
             </div>
           </div>
           <Button 
             onClick={handleSendMessage}
             disabled={isLoading || !inputValue.trim()}
             size="sm"
-            className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white rounded-2xl min-w-[48px] h-12 shadow-lg transition-all duration-200 disabled:opacity-50"
+            className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white rounded-2xl min-w-[56px] h-14 shadow-lg transition-all duration-200 disabled:opacity-50 hover:scale-105 active:scale-95"
           >
             {isLoading ? (
-              <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+              <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
             ) : (
-              <Send className="w-4 h-4" />
+              <Send className="w-5 h-5" />
             )}
           </Button>
         </div>
         
-        {/* Enhanced Status Bar */}
-        <div className="flex items-center justify-between mt-4 text-xs">
-          <div className="flex items-center space-x-4">
-            <span className="flex items-center bg-green-50 text-green-700 px-2 py-1 rounded-full">
-              <div className="w-1.5 h-1.5 bg-green-400 rounded-full mr-1.5 animate-pulse"></div>
-              Secure AI Assistant
-            </span>
-            <span className="flex items-center bg-blue-50 text-blue-700 px-2 py-1 rounded-full">
-              <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-1.5"></div>
-              Live Data Sync
-            </span>
-          </div>
-          <div className="text-right">
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-bold">FlowTernity Sports AI</span>
+        {/* Helpful Tips */}
+        <div className="mt-4 bg-gradient-to-r from-gray-50 to-white border border-gray-100 rounded-xl p-3">
+          <div className="flex items-center justify-between text-xs">
+            <div className="flex items-center space-x-4">
+              <span className="flex items-center text-green-600 font-medium">
+                <div className="w-1.5 h-1.5 bg-green-400 rounded-full mr-1.5 animate-pulse"></div>
+                🔒 Secure & Private
+              </span>
+              <span className="flex items-center text-blue-600 font-medium">
+                <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-1.5"></div>
+                ⚡ Real-time Data
+              </span>
+              <span className="flex items-center text-purple-600 font-medium">
+                <div className="w-1.5 h-1.5 bg-purple-400 rounded-full mr-1.5"></div>
+                🤖 AI-Powered
+              </span>
+            </div>
+            <div className="text-right">
+              <span className="text-gray-500 font-medium">💬 Try: "What sports do you offer?"</span>
+            </div>
           </div>
         </div>
       </div>
