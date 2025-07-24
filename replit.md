@@ -79,7 +79,7 @@ The application follows a modern full-stack architecture with clear separation b
 ### Web Scraping
 - **Cheerio**: HTML parsing for web scraping
 - **Node Fetch**: HTTP requests for data collection
-- Multiple data sources: Playo venue pages, Instagram profiles, Google Maps
+- Multiple data sources: Playo venue pages, Instagram profiles, Google Maps.
 
 ### UI Libraries
 - **Radix UI**: Accessible component primitives
